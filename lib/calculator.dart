@@ -78,10 +78,7 @@ class _CalculatorState extends State<Calculator> {
                     textColor: Colors.white,
                     buttonColor: Colors.orange[400],
                   ),
-                  buttonGenerator(
-                    title: "( )",
-                    textColor: Colors.green,
-                  ),
+                  buttonGenerator(title: "+/-", textColor: Colors.white),
                   buttonGenerator(title: "%", textColor: Colors.green),
                   buttonGenerator(title: "÷", textColor: Colors.green),
                 ],
@@ -120,13 +117,43 @@ class _CalculatorState extends State<Calculator> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  buttonGenerator(title: "+/-", textColor: Colors.white),
+                  SizedBox(
+                    width: 15,
+                  ),
                   buttonGenerator(title: "0", textColor: Colors.white),
+                  SizedBox(
+                    width: 15,
+                  ),
                   buttonGenerator(title: ".", textColor: Colors.white),
-                  buttonGenerator(
-                      title: "=",
-                      textColor: Colors.white,
-                      buttonColor: Colors.green),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Expanded(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        calculation('=');
+                      },
+                      child: Text(
+                        "=",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 30,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: Size(80, 80),
+                        elevation: 00,
+                        padding: EdgeInsets.all(20),
+                        primary: Colors.green,
+                        shape: new RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(50.0),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
                 ],
               )
             ],
